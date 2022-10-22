@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteModalComponent } from './delete-modal.component';
+import { AddPopupScreenComponent } from './add-popup-screen.component';
 
-describe('DeleteModalComponent', () => {
-  let component: DeleteModalComponent;
-  let fixture: ComponentFixture<DeleteModalComponent>;
+describe('AddPopupScreenComponent', () => {
+  let component: AddPopupScreenComponent;
+  let fixture: ComponentFixture<AddPopupScreenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteModalComponent ]
+      declarations: [ AddPopupScreenComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeleteModalComponent);
+    fixture = TestBed.createComponent(AddPopupScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

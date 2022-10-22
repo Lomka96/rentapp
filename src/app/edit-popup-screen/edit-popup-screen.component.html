@@ -1,0 +1,36 @@
+<div class="edit-modal-content">
+    <form #editForm="ngForm">
+        <h2 class="add-title">Edit Car</h2>
+        <div class="add-body">
+            <input ngModel="{{car.id}}" name="id" type="text" class="form-control" id="id" required readonly/>
+
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input ngModel="{{car.model}}" name="model" type="text" class="form-control" id="model" required />
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input ngModel="{{car.color}}" name="color" type="text" class="form-control" id="color" required />
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input ngModel="{{car.year}}" name="year" type="text" class="form-control" id="year" required />
+            </div>
+
+            <div class="form-group">
+                <label for="vinId">VIN</label>
+                <input ngModel="{{car.vinId}}" name="vinId" type="text" class="form-control" id="vinId" required />
+            </div>
+
+            <div class="form-group">
+                <label for="costPerDay">Price</label>
+                <input ngModel="{{car.costPerDay}}" name="costPerDay" type="costPerDay" class="form-control" id="costPerDay" required />
+            </div>
+        </div>
+        <button class="button button-cancel" (click)="closeDialog()">Cancel</button>
+        <button [disabled]="editForm.invalid" type="submit"class="button button-save" (click)="updateCar(editForm)">Save</button>
+    </form>
+</div>
+

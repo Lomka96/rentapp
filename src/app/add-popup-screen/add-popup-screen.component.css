@@ -1,0 +1,52 @@
+.add-modal-content {
+    width: 320px;
+    height: 330px;
+}
+
+.add-title {
+    text-align: center;
+    font-size: 23px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.form-control {
+    width: 180px;
+    padding: 5px;
+}
+
+label {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    margin-right: 12px;
+}
+
+.button {
+    font-size: 20px;
+    padding: 6px 10px;
+    color: #DFDEDF;
+  }
+
+.button-add {
+    background-color: #196ce8; 
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+.button-cancel {
+    margin-left: 150px;
+    font-size: 17px; 
+} 
+
+::ng-deep .mat-dialog-container {
+    border-radius: 10px;
+}
+
+button:disabled,
+button[disabled]{
+  opacity: 40%;
+}

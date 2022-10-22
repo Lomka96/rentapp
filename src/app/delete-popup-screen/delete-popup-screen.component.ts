@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CarService } from '../services/car.service';
+
 
 @Component({
   selector: 'app-delete-popup-screen',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeletePopupScreenComponent implements OnInit {
 
-  constructor() { }
+  private carId: any;
+
+  constructor(private dialogRef: MatDialogRef<DeletePopupScreenComponent>, @Inject(MAT_DIALOG_DATA) data, 
+    private carService: CarService) {
+    this.carId = data.carId;
+  }
 
   ngOnInit(): void {
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  deleteCar() {
+    this.carService.deleteCar(this.carId);
+    this.dialogRef.close();
+    window.location.reload();
   }
 
 }

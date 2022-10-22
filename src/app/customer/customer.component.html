@@ -1,0 +1,20 @@
+<button *ngIf="isAuthorized" class="button button-add" (click)="openAddCustomerModal()">Add</button>
+<div  *ngIf="isAuthorized" class="container" id = "customer-container">
+    <div *ngFor="let customer of customers" class="customer">
+        <div class="customer-dtls">
+            <b>Name: {{customer.firstName}}</b> <br>
+            <b>Last name: {{customer.lastName}}</b> <br>
+            <span>Driver license: {{customer.driverLicense}}</span> <br>
+            <span>Email: {{customer.email}}</span> <br>
+            <!-- <span>Start date: {{customer.startDate | date}}</span> <br>
+            <span>Finish date: {{customer.finishDate | date}}</span> <br> -->
+        </div>
+        <button class="button button-cars" ><a href="customers/cars">Cars</a></button>
+        <button class="button button-edit" (click)="openEditCustomerModal(customer)">Edit</button>
+        <button class="button button-add-car" (click)="openAddCarToListModal()">Add car</button>
+        <button mat-raised-button (click)= "openDeleteModal(customer.id)" class="button button-delete">Delete</button>
+    </div>
+</div>
+<!-- <p>Customer 1</p>
+<p>Customer 2</p>
+<p>Customer 3</p> -->
