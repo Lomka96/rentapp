@@ -2,8 +2,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Car } from './interface/car';
 import { Customer } from './interface/customer';
+import { Order } from './interface/order';
 import { CarService } from './services/car.service';
 import { CustomerService } from './services/customer.service';
+import { OrderService } from './services/order.service';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +18,12 @@ export class AppComponent implements OnInit{
   }
   public cars: Car[] = [];
   public customers: Customer[] = [];
-  constructor(private carService: CarService, private customerService: CustomerService) { }
+  public orders: Order[] = [];
+  constructor(private carService: CarService, private customerService: CustomerService,
+    private orderService: OrderService) { }
 
   ngOnInit(): void{
     this.getCars();
-    this.getCustomers();
   }
   
   public getCars(): void{
@@ -38,6 +41,17 @@ export class AppComponent implements OnInit{
     this.customerService.getCustomers().subscribe(
       (response: Customer[]) => {
         this.customers = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public getOrders(): void{
+    this.orderService.getOrders().subscribe(
+      (response: Order[]) => {
+        this.orders = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

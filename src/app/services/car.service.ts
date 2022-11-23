@@ -15,19 +15,19 @@ export class CarService {
   }
 
   private setToken(): void {
-    this.header = {
-      headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${localStorage.getItem('Token')}`)
-    };
+    if (localStorage.getItem('Token') !== null) {
+      this.header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  `Bearer ${localStorage.getItem('Token')}`)
+      };
+    }
   }
 
   public getCars(): Observable<Car[]> {
-    this.setToken();
     return this.http.get<Car[]>(`${this.apiServerUrl}/cars`, this.header);
   }
 
   public getCar(carId: number): Observable<Car> {
-    this.setToken();
     return this.http.get<Car>(`${this.apiServerUrl}/cars/${carId}`, this.header);
   }
     

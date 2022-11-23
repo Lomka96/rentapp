@@ -10,6 +10,7 @@ import { AddPopupScreenCustomerComponent } from '../add-popup-screen-customer/ad
 import { DeletePopupScreenCustomerComponent } from '../delete-popup-screen-customer/delete-popup-screen-customer.component';
 import { EditPopupScreenCustomerComponent } from '../edit-popup-screen-customer/edit-popup-screen-customer.component';
 import { AddCarToListComponent } from '../add-car-to-list/add-car-to-list.component';
+import { CustomerCarsPopupScreenComponent } from '../customer-cars-popup-screen/customer-cars-popup-screen.component';
 
 @Component({
   selector: 'app-customer',
@@ -63,6 +64,14 @@ export class CustomerListComponent implements OnInit {
 
   public openAddCarToListModal(): void {
     this.dialog.open(AddCarToListComponent, {
+    });
+  }
+
+  public openCustomerCarsModal(customer: Customer): void {
+    this.dialog.open(CustomerCarsPopupScreenComponent, {
+      data: {
+        customer: customer
+      }
     });
   }
 }

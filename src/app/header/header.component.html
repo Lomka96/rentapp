@@ -3,6 +3,7 @@
     <div *ngIf="isPanelMenuEnabled" class="panel-menu">
         <a href="/cars" class="item-menu" >Cars</a>
         <a href="/customers" class="item-menu">Customers</a>
+        <a href="/orders" class="item-menu">Orders</a>
     </div>
     <button *ngIf="!isAuthorized" class="sign-button" (click)="openAuthWindow()">Log in</button>
     <button *ngIf="isAuthorized"  class="sign-button" (click)="signOut()">Log out</button>

@@ -23,10 +23,16 @@ import { ChoosePopupScreenComponent } from './choose-popup-screen/choose-popup-s
 import { SendPopupScreenComponent } from './send-popup-screen/send-popup-screen.component';
 import { AddCustomerToListComponent } from './add-customer-to-list/add-customer-to-list.component';
 import { AddCarToListComponent } from './add-car-to-list/add-car-to-list.component';
+import { OrderComponent } from './order/order.component';
+import { EditPopupScreenOrderComponent } from './edit-popup-screen-order/edit-popup-screen-order.component';
+import { DeletePopupScreenOrderComponent } from './delete-popup-screen-order/delete-popup-screen-order.component';
+import { CommonModule } from '@angular/common';
+import { CustomerCarsPopupScreenComponent } from './customer-cars-popup-screen/customer-cars-popup-screen.component';
 
 const routers = [
    { path: 'cars', component: CarListComponent },
-  
+   { path: '', component: CarListComponent },
+   { path: 'orders', component: OrderComponent },
   { path: 'customers', component: CustomerListComponent }
 ]
 
@@ -43,13 +49,18 @@ const routers = [
     AddPopupScreenCustomerComponent,
     DeletePopupScreenCustomerComponent,
     EditPopupScreenCustomerComponent,
+    EditPopupScreenOrderComponent,
+    DeletePopupScreenOrderComponent,
     ChooseCarComponent,
     ChoosePopupScreenComponent,
     SendPopupScreenComponent,
     AddCustomerToListComponent,
-    AddCarToListComponent
+    AddCarToListComponent,
+    OrderComponent,
+    CustomerCarsPopupScreenComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     MatDialogModule,

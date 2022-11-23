@@ -3,16 +3,16 @@
     <div *ngFor="let car of cars" class="car">
         <img src="{{car?.imageUrl}}">
         <div class="car-dtls">
-            <h4><a href="#">{{car.model}}</a></h4>
+            <h4><b>{{car.model}}</b></h4>
             <span>Color: {{car.color}}</span> <br>
             <span>Year: {{car.year}}</span> <br>
             <span>VIN: {{car.vinId}}</span> <br>
-            <h4>Price: {{car.costPerDay}}</h4>
+            <h4>Price: {{car.costPerDay}}$/day</h4>
         </div>
-        <button *ngIf="isAuthorized" class="button button-customers" ><a href="cars/customers">Customers</a></button>
+        <!-- <button *ngIf="isAuthorized" class="button button-customers" ><a href="cars/customers">Customers</a></button> -->
         <button *ngIf="isAuthorized" class="button button-edit" (click)="openEditCarModal(car)">Edit</button>
-        <button *ngIf="isAuthorized" class="button button-add-customer" (click)="openAddCustomerToListModal()">Add customer</button>
+        <!-- <button *ngIf="isAuthorized" class="button button-add-customer" (click)="openAddCustomerToListModal()">Add customer</button> -->
         <button *ngIf="isAuthorized" mat-raised-button (click)= "openDeleteModal(car.id)" class="button button-delete">Delete</button>
-        <button *ngIf="!isAuthorized" class="button button-choose" (click)="openChooseCarModal()">Choose</button>
+        <button *ngIf="!isAuthorized" class="button button-choose" (click)="openChooseCarModal(car.id)">Choose</button>
     </div>
 </div>

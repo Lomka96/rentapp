@@ -62,8 +62,11 @@ export class CarListComponent implements OnInit {
     });
   }
 
-  public openChooseCarModal(): void {
+  public openChooseCarModal(carId: number): void {
     this.dialog.open(ChoosePopupScreenComponent, {
+      data: {
+        carId: carId
+      }
     });
   }
 

@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Customer } from "../interface/customer";
 import { AuthService } from "./auth.service";
+import { Car } from "../interface/car";
 
 @Injectable({providedIn: 'root'})
 export class CustomerService {
@@ -16,10 +17,12 @@ export class CustomerService {
   }
 
   private setToken(): void {
-    this.header = {
-      headers: new HttpHeaders()
-        .set('Authorization',  `Bearer ${localStorage.getItem('Token')}`)
-    };
+    if (localStorage.getItem('Token') !== null) {
+      this.header = {
+        headers: new HttpHeaders()
+          .set('Authorization',  `Bearer ${localStorage.getItem('Token')}`)
+      };
+    }
   }
 
   public getCustomers(): Observable<Customer[]> {
@@ -45,5 +48,10 @@ export class CustomerService {
   public deleteCustomer(id: number): void {
     this.setToken();
     this.http.delete(`${this.apiServerUrl}/customers/${id}`, this.header).subscribe();
+  }
+
+  public getCustomerCars(id: number): Observable<Car[]> {
+    this.setToken();
+    return this.http.get<Car[]>(`${this.apiServerUrl}/customers/${id}/cars`, this.header);
   }
 }

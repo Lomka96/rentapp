@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 90%;
+  max-width: 110%;
   margin: 0 auto;
   /* min-width: 100px;  */
 }
@@ -18,7 +18,8 @@
 }
 
 img {
-   width: 250px;
+   width: 320px;
+   height: 180px;
 }
 
 .car-dtls {
@@ -32,21 +33,6 @@ img {
   width: 70px;
 }
 
-.button-customers {
-  background-color: #196ce8;
-  color: #DFDEDF;
-  margin-right: 55px;
-  margin-bottom: 6px;
-  width: 120px;
-}
-
-.button-add-customer {
-  background: #084520;
-  color: #DFDEDF;
-  margin-right: 55px;
-  width: 120px;
-}
-
 .button-delete {
   width: 70px;
   margin-left: 10px;
@@ -55,7 +41,7 @@ img {
 .button-add {
   background: #084520;
   width: 150px;
-  margin-left: 230px;
+  margin-left: 50px;
   margin-bottom: 10px;
   font-size: 20px;
   padding: 8px 16px;
